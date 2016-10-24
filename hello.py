@@ -2,7 +2,7 @@ from cgi import parse_qs
 
 def application(env, start_responce):
 	
-	query = parse_qs(env['QUERY_STRING'])
+	query = parse_qs(env['QUERY_STRING'], keep_blank_values=True)
 	body = []
 
 	for key, values in query.items():
