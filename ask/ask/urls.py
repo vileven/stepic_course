@@ -22,11 +22,13 @@ Including another URLconf
 /popular/
 /new/
 '''
-from django.conf.urls import url
+from django.conf.urls import url,include
 from django.contrib import admin
 admin.autodiscover()
+from qa.views import test
 
 urlpatterns = [
-	url(r'^', include('qa.urls'))
-    url(r'^admin/', admin.site.urls),
+	url(r'^', include('qa.urls')),
+	url(r'^admin/', admin.site.urls),
+	url(r'^$',test),
 ]
