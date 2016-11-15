@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^ask/', test),
 	url(r'^popular/', test),
 	url(r'^new/', test),
+	url(r'^signup/',test),
 ]
