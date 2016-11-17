@@ -1,5 +1,6 @@
 sudo pip3 install django
 sudo pip3 install pymysql
+sudo pip install pymysql
 
 #nginx conf
 sudo rm -r /etc/nginx/sites-enabled/default
