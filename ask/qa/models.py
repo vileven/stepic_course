@@ -9,10 +9,10 @@ from django.db import models
 
 class QuestionManager(models.Manager):
     def new(self):
-        return self.objects.all().order_by('-id')
+        return self.all().order_by('-id')
 
     def popular(self):
-        return self.objects.all().order_by('rating')
+        return self.all().order_by('rating')
 
 
 class Question(models.Model):

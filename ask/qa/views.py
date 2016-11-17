@@ -10,8 +10,8 @@ from django.http import HttpResponseNotModified
 from django.views.decorators.http import require_GET, require_POST
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
-from ask.qa.models import Answer
-from ask.qa.models import Question
+from qa.models import Answer
+from qa.models import Question
 
 
 # Create your views here.
