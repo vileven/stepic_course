@@ -7,6 +7,14 @@ from django.db import models
 # Create your models here.
 
 
+class QuestionManager(models.Manager):
+    def new(self):
+        pass
+
+    def popular(self):
+        pass
+
+
 class Question(models.Model):
     objects = QuestionManager()
     title = models.CharField(max_length=255)
@@ -24,14 +32,6 @@ class Question(models.Model):
 
     def get_absolute_url(self):
         return reverse('question_detail', kwargs={'pk': self.pk})
-
-
-class QuestionManager(models.Manager):
-    def new(self):
-        pass
-
-    def popular(self):
-        pass
 
 
 class Answer(models.Model):
