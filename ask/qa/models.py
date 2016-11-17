@@ -9,10 +9,10 @@ from django.db import models
 
 class QuestionManager(models.Manager):
     def new(self):
-        pass
+        return self.objects.all().order_by('-id')
 
     def popular(self):
-        pass
+        return self.objects.all().order_by('rating')
 
 
 class Question(models.Model):
@@ -31,7 +31,7 @@ class Question(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('question_detail', kwargs={'pk': self.pk})
+        return reverse('question', kwargs={'pk': self.pk})
 
 
 class Answer(models.Model):
@@ -42,3 +42,6 @@ class Answer(models.Model):
 
     class Meta:
         ordering = ('added_at',)
+
+    def __str__(self):
+        return 'Answer by {}'.format(self.author)

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ block.super }} - popular questions
+{% endblock %}
+
+{% block content %}
+{% for question in questions %}
+    <h1>{{ question.title }}</h1>
+    <a href="{{ question.get_absolute_url }}">{{ question }}</a>
+    <hr>
+{% endfor %}
+
+{% include "paginator.html" %}
+{% endblock %}
