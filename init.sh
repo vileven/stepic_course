@@ -15,8 +15,8 @@ sudo ln -s /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 sudo /etc/init.d/gunicorn restart
 
 #mysql
-sudo /etc/init.d/mysql start
-mysql -uroot -e "create database qa"
+#sudo /etc/init.d/mysql start
+#mysql -uroot -e "create database qa"
 
 
 

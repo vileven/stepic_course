@@ -10,8 +10,8 @@ from django.http import HttpResponseNotModified
 from django.views.decorators.http import require_GET, require_POST
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
-from qa.models import Answer
-from qa.models import Question
+from ask.qa.models import Answer
+from ask.qa.models import Question
 
 
 # Create your views here.
@@ -29,16 +29,18 @@ def paginate(request, qs):
         limit = 10
     if limit > 100:
         limit = 10
+
     try:
         page = int(request.GET.get('page', 1))
     except ValueError:
         raise Http404
+
     paginator = Paginator(qs, limit)
+
     try:
         page = paginator.page(page)
     except EmptyPage:
         page = paginator.page(paginator.num_pages)
-
     return page, paginator
 
 
