@@ -1,4 +1,5 @@
 sudo pip3 install django
+sudo pip3 install django-autofixture
 sudo pip3 install pymysql
 sudo pip install pymysql
 
@@ -15,5 +16,7 @@ sudo /etc/init.d/gunicorn restart
 #mysql
 sudo /etc/init.d/mysql start
 mysql -uroot -e "create database qa"
+
+
 
 

@@ -10,8 +10,8 @@ from django.http import HttpResponseNotModified
 from django.views.decorators.http import require_GET, require_POST
 from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
-from ask.qa.models import Answer
-from ask.qa.models import Question
+from qa.models import Answer
+from qa.models import Question
 
 
 # Create your views here.
@@ -42,7 +42,6 @@ def paginate(request, qs):
     return page, paginator
 
 
-@require_GET
 def index(request):
     # questions = Question.objects.all()
     # questions = questions.order_by('-id')
@@ -56,7 +55,6 @@ def index(request):
     })
 
 
-@require_GET
 def popular_questions(request):
     # questions = Question.objects.all()
     # questions = questions.order_by('-rating')
@@ -70,7 +68,6 @@ def popular_questions(request):
     })
 
 
-@require_GET
 def question(request, pk):
     qst = get_object_or_404(Question, id=pk)
     answers = qst.answer_set.all()
