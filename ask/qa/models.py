@@ -12,7 +12,7 @@ class QuestionManager(models.Manager):
         return self.all().order_by('-id')
 
     def popular(self):
-        return self.all().order_by('rating')
+        return self.all().order_by('-rating')
 
 
 class Question(models.Model):
