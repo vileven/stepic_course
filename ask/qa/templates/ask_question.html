@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Ask Question // Ask Pupkin{% endblock %}
+
+{% block content %}
+    <h1>AskQuestion</h1>
+    <form method="POST" action="/ask/">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit">Save</button>
+    </form>
+{% endblock %}

@@ -16,9 +16,9 @@
 	   <hr>
     {% endfor %}
 
-{#    <form method="POST" action="/answer/">#}
-{#        {% csrf_token %}#}
-{#        {{ form.as_ul }}#}
-{#        <button type="submit">Save</button>#}
-{#    </form>#}
+    <form method="POST" action="/answer/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <button type="submit">Save</button>
+    </form>
 {% endblock %}

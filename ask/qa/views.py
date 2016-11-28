@@ -12,6 +12,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth import authenticate, login
 from qa.models import Answer
 from qa.models import Question
+from qa.forms import AskForm, AnswerForm
 
 
 # Create your views here.
@@ -73,9 +74,37 @@ def popular_questions(request):
 def question(request, pk):
     qst = get_object_or_404(Question, id=pk)
     answers = qst.answer_set.all()
+    form = AnswerForm(initial={'question': str(pk)})
     return render(request, 'question.html', {
         'question': qst,
         'answers': answers,
+        'form': form,
     })
+
+
+def ask_question(request):
+    if request.method == 'POST':
+        form = AskForm(request.POST)
+        if form.is_valid():
+            ask = form.save()
+            url = reverse('question', args=[ask.id])
+            return HttpResponseRedirect(url)
+    else:
+        form = AskForm()
+
+    return render(request, 'ask_question.html', {
+        'form': form
+    })
+
+
+def question_answer(request):
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save()
+            url = reverse('question', args=[answer.question.id])
+            return HttpResponseRedirect(url)
+    return HttpResponseRedirect('/')
+
 
 
