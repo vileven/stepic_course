@@ -1,3 +1,4 @@
+chmod -R a+rw ../../
 sudo pip3 install django
 sudo pip3 install django-autofixture
 sudo pip install django-autofixture

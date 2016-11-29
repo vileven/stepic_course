@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up // Ask Pupkin{% endblock %}
+
+{% block content %}
+    <form method="POST" action="/signup/">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <button type="submit" class="btn">Sign up!</button>
+    </form>
+{% endblock %}
